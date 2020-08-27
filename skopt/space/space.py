@@ -950,13 +950,14 @@ class Space(object):
             The transformed samples.
         """
         # Pack by dimension
-        columns = []
-        for dim in self.dimensions:
-            columns.append([])
+        # columns = []
+        # for dim in self.dimensions:
+        #     columns.append([])
 
-        for i in range(len(X)):
-            for j in range(self.n_dims):
-                columns[j].append(X[i][j])
+        # for i in range(len(X)):
+        #     for j in range(self.n_dims):
+        #         columns[j].append(X[i][j])
+        columns = np.array(X, dtype='object').transpose().tolist()
 
         # Transform
         for j in range(self.n_dims):

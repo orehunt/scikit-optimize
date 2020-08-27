@@ -63,7 +63,8 @@ class StringEncoder(Transformer):
         Xt : array-like, shape=(n_samples,)
             The string encoded categories.
         """
-        return [str(x) for x in X]
+        # return [str(x) for x in X]
+        return np.asarray(X).astype(str)
 
     def inverse_transform(self, Xt):
         """Inverse transform string encoded categories back to their original
@@ -80,6 +81,7 @@ class StringEncoder(Transformer):
             The original categories.
         """
         return [self.dtype(x) for x in Xt]
+        # return np.asarray(Xt).astype(self.dtype)
 
 
 class LogN(Transformer):
