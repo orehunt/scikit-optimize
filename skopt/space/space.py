@@ -894,7 +894,7 @@ class Space(object):
             columns.append(dim.rvs(n_samples=n_samples, random_state=rng))
 
         # Transpose
-        return _transpose_list_array(columns)
+        return np.asarray(columns, dtype='object').transpose().tolist()
 
     def set_transformer(self, transform):
         """Sets the transformer of all dimension objects to `transform`
@@ -999,7 +999,7 @@ class Space(object):
             start += offset
 
         # Transpose
-        return _transpose_list_array(columns)
+        return np.asarray(columns, dtype='object').transpose().tolist()
 
     @property
     def n_dims(self):
